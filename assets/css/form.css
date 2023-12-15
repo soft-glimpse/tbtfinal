@@ -112,6 +112,10 @@ input {
     align-items: center;
 
 }
+.disabled-input {
+  background-color: #f0f0f0; 
+  cursor: not-allowed;
+} 
 
 .submit-button{
     height: 50px;
@@ -131,8 +135,10 @@ input {
     color: #222;
     border: 1px solid #222	;
     background-color: transparent;
+    margin-top: 16px;
   }
   .submit-button:hover{
+    margin-top: 16px;
     height: 50px;
     width: 180px;
     padding-top: 5px;

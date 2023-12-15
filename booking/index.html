@@ -5,6 +5,8 @@
   <meta charset="UTF-8" />
   <title>Shoot Inquiry Form</title>
   <link rel="stylesheet" href="../assets/css/form.css" />
+  
+  <link href="../assets/img/TheBunnyTeeth_Logo.png" rel="icon">
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,7 +36,11 @@
 
     <h1 class="quote-text">The moment you've been waiting for is almost here - your dream photoshoot!</h1>
 
-    <form class="form-container" id="shootForm" action="#" method="post">
+    <form class="form-container" id="shootForm" action="https://api.web3forms.com/submit" method="POST">
+
+
+      <input type="hidden" name="access_key" value="">
+      <input type="hidden" name="from_name" value="Booking">
 
       <div class="mb-4 name-container">
         <div class="inner-fname-container">
@@ -59,7 +65,7 @@
       </div>
 
       <div class="whatsapp-checkbox">
-        <input class="checkbox-input " type="checkbox" id="whatsappCheck" name="whatsappCheck" />
+        <input class="checkbox-input " type="checkbox" id="whatsappCheck" name="whatsappCheck" onchange="handleWhatsAppCheck()"/>
         <label class="label-text" for="whatsappCheck">Is this same as WhatsApp number?</label>
       </div>
 
@@ -70,17 +76,21 @@
 
       <div class="mb-4 city-container">
         <label class="label-text" for="city">City<sup class="required">(required)</sup></label>
-        <select id="city" name="city" required>
+        <select id="city" name="city" required onchange="handleCitySelection()">
           <option value="">Select Your Option</option>
           <option value="Chennai">Chennai</option>
           <option value="Others">Others</option>
         </select>
       </div>
+      <div class="mb-2" id="otherCityInput" style="display: none;">
+        <label class="label-text" for="otherCity">Enter City</label>
+        <input type="text" id="otherCity" name="otherCity">
+      </div>
 
       <div class="mb-4 ">
         <label class="label-text" for="shootType">What can we shoot for you?<sup
             class="required">(required)</sup></label>
-            <select id="shootType" name="city" required>
+            <select id="shootType" name="shootType" required>
               <option value="">Select Your Option</option>
               <option value="Maternity">Maternity 34 to 36 weeks</option>
               <option value="Newborn">Newborn 6 to 40 days</option>
@@ -108,26 +118,27 @@
         <label class="label-text">Where did you hear about us?<span class="required">(required)</span></label><br />
 
         <div class="lead-type-container">
-          <input class="checkbox-input" type="checkbox" id="socialMedia" name="heardFrom[]"
+          <input class="checkbox-input" type="checkbox" id="socialMedia" name="heardFrom"
             value="Social media - Facebook/Instagram" />
           <label class="label-text" for="socialMedia">Social media - Facebook/Instagram</label>
         </div>
 
         <div class="lead-type-container">
-          <input class="checkbox-input" type="checkbox" id="googleSearch" name="heardFrom[]" value="Google search" />
+          <input class="checkbox-input" type="checkbox" id="googleSearch" name="heardFrom" value="Google search" />
           <label class="label-text" for="googleSearch">Google search</label><br />
         </div>
 
         <div class="lead-type-container">
-          <input class="checkbox-input" type="checkbox" id="familyFriends" name="heardFrom[]" value="Family/friends" />
+          <input class="checkbox-input" type="checkbox" id="familyFriends" name="heardFrom" value="Family/friends" />
           <label class="label-text" for="familyFriends">Family/friends</label><br />
         </div>
 
         <div class="lead-type-container">
-          <input class="checkbox-input" type="checkbox" id="others" name="heardFrom[]" value="Others" />
+          <input class="checkbox-input" type="checkbox" id="others" name="heardFrom" value="Others" />
           <label class="label-text" for="others">Others</label>
         </div>
       </div>
+      <div class="h-captcha" data-captcha="true"></div>
 
       <button type="submit" class="submit-button">Submit</button>
     </form>
@@ -196,8 +207,67 @@
   <div id="preloader"></div>
   <script src="../assets/js/main.js"></script>
 
+  <script src="https://web3forms.com/client/script.js" async defer></script>
+
 
   <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+
+  <script>
+    function handleWhatsAppCheck() {
+    const whatsappCheckbox = document.getElementById("whatsappCheck");
+    const whatsappInput = document.getElementById("whatsapp-num");
+    const phoneInput = document.getElementById("phone");
+
+    if (whatsappCheckbox.checked) {
+      whatsappInput.disabled = true;
+      whatsappInput.value = phoneInput.value; 
+      whatsappCheckbox.value=phoneInput.value;
+      whatsappInput.classList.add('disabled-input')
+    } else {
+      whatsappInput.disabled = false;
+      whatsappInput.value = ""; 
+      whatsappCheckbox.value="";
+      whatsappInput.classList.remove('disabled-input')
+    }
+  }
+
+  function handleCitySelection() {
+    const citySelect = document.getElementById("city");
+    const otherCityInput = document.getElementById("otherCityInput");
+    const otherCity = document.getElementById("otherCity");
+
+    if (citySelect.value === "Others") {
+      otherCityInput.style.display = "block"; // Display input when "Others" is selected
+      otherCity.required = true; // Make the input field required
+    } else {
+      otherCityInput.style.display = "none"; // Hide input for other options
+      otherCity.required = false; // Make the input field non-required
+    }
+  }
+  </script>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function() {
+    // Get the form element
+    const form = document.getElementById('shootForm');
+
+    // Reset the form on page load or refresh
+    form.reset();
+
+    // Optional: Reset additional elements not cleared by form.reset()
+    document.querySelectorAll('input[type="checkbox"]').forEach(el => {
+      el.checked = false;
+    });
+    document.querySelectorAll('input[type="date"]').forEach(el => {
+      el.value = '';
+    });
+    document.querySelectorAll('textarea').forEach(el => {
+      el.value = '';
+    });
+  });
+</script>
+
 
 </body>
 
