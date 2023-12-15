@@ -458,7 +458,9 @@ section {
 }
 .inta-btn-icon {
   margin-left: 10px;
-  width: 24px;
+  font-size: 24px;
+  font-weight: 100;
+
 }
 
 

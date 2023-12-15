@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Shoot Inquiry Form</title>
+  <link rel="stylesheet" href="../assets/css/form.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Alegreya:wght@500&family=Crimson+Text&family=DM+Sans:wght@600&family=Nunito+Sans&family=Raleway&family=Roboto&family=Simonetta:ital@1&display=swap"
+    rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Prata&display=swap" rel="stylesheet" />
+
+
+  <link href="../assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+
+
+
+</head>
+
+<body>
+
+
+
+
+  <div class="bg-container">
+
+    <div class="navbar-style">
+      <a class="nav-link" href="../"><i class="bi bi-arrow-left back-arrow"></i></a>
+    </div>
+
+    <h1 class="quote-text">The moment you've been waiting for is almost here - your dream photoshoot!</h1>
+
+    <form class="form-container" id="shootForm" action="#" method="post">
+
+      <div class="mb-4 name-container">
+        <div class="inner-fname-container">
+          <label class="label-text" for="firstName">First Name<sup class="required">(required)</sup></label>
+          <input type="text" id="firstName" name="firstName" required />
+        </div>
+
+        <div class="inner-lname-container">
+          <label class="label-text" for="lastName">Last Name<sup class="required">(required)</sup></label>
+          <input type="text" id="lastName" name="lastName" required />
+        </div>
+      </div>
+
+      <div class="mb-4">
+        <label class="label-text" for="email">Email<sup class="required">(required)</sup></label>
+        <input type="email" id="email" name="email" required />
+      </div>
+
+      <div class="mb-1">
+        <label class="label-text" for="phone">Phone<sup class="required">(required)</sup></label>
+        <input type="tel" id="phone" name="phone" required />
+      </div>
+
+      <div class="whatsapp-checkbox">
+        <input class="checkbox-input " type="checkbox" id="whatsappCheck" name="whatsappCheck" />
+        <label class="label-text" for="whatsappCheck">Is this same as WhatsApp number?</label>
+      </div>
+
+      <div class="mb-4 ">
+        <label class="label-text" for="phone">Whatsapp</label>
+        <input type="tel" id="whatsapp-num" name="whatsapp-num" required />
+      </div>
+
+      <div class="mb-4 city-container">
+        <label class="label-text" for="city">City<sup class="required">(required)</sup></label>
+        <select id="city" name="city" required>
+          <option value="">Select Your Option</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Others">Others</option>
+        </select>
+      </div>
+
+      <div class="mb-4 ">
+        <label class="label-text" for="shootType">What can we shoot for you?<sup
+            class="required">(required)</sup></label>
+            <select id="shootType" name="city" required>
+              <option value="">Select Your Option</option>
+              <option value="Maternity">Maternity 34 to 36 weeks</option>
+              <option value="Newborn">Newborn 6 to 40 days</option>
+              <option value="Baby">Baby 3 to 6 months</option>
+              <option value="Sitter">Sitter 7 to 12 months</option>
+              <option value="Cake Smash">Cake Smash </option>
+              <option value="Toddler & Young Kids">Toddler & Young Kids</option>
+              <option value="Family">Family (Indoor & Outdoor)</option>
+              <option value="Birthday">Birthday</option>
+            </select>
+      </div>
+
+      <div class="mb-4 ">
+        <label class="label-text" for="shootDate">When should we plan for this shoot?<sup
+            class="required">(required)</sup></label>
+        <input type="date" id="shootDate" name="shootDate" required />
+      </div>
+
+      <div class="mb-4 ">
+        <label class="label-text" for="message">Add a message</label>
+        <textarea id="message" name="message" rows="4" cols="50"></textarea>
+      </div>
+
+      <div class="mb-4 ">
+        <label class="label-text">Where did you hear about us?<span class="required">(required)</span></label><br />
+
+        <div class="lead-type-container">
+          <input class="checkbox-input" type="checkbox" id="socialMedia" name="heardFrom[]"
+            value="Social media - Facebook/Instagram" />
+          <label class="label-text" for="socialMedia">Social media - Facebook/Instagram</label>
+        </div>
+
+        <div class="lead-type-container">
+          <input class="checkbox-input" type="checkbox" id="googleSearch" name="heardFrom[]" value="Google search" />
+          <label class="label-text" for="googleSearch">Google search</label><br />
+        </div>
+
+        <div class="lead-type-container">
+          <input class="checkbox-input" type="checkbox" id="familyFriends" name="heardFrom[]" value="Family/friends" />
+          <label class="label-text" for="familyFriends">Family/friends</label><br />
+        </div>
+
+        <div class="lead-type-container">
+          <input class="checkbox-input" type="checkbox" id="others" name="heardFrom[]" value="Others" />
+          <label class="label-text" for="others">Others</label>
+        </div>
+      </div>
+
+      <button type="submit" class="submit-button">Submit</button>
+    </form>
+  </div>
+
+  <footer id="footer" class="footer">
+
+    <div class="container">
+      <div class="row gy-3">
+        <div class="col-lg-3 col-lg-6 d-flex">
+          <i class="bi bi-geo-alt icon"></i>
+          <div>
+            <h4>Address</h4>
+            <p>
+              2nd Street, Ram Nagar North,<br> Madipakkam, Chennai 600091.
+            </p>
+          </div>
+
+        </div>
+
+        <div class="col-lg-3 col-lg-6 footer-links d-flex">
+          <i class="bi bi-telephone icon"></i>
+          <div>
+            <h4>Reservations</h4>
+            <p>
+              <strong>Phone:</strong> +91 78249 99900<br>
+              <strong>Email:</strong> hello@thebunnyteethphotography.com<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-lg-6 footer-links d-flex">
+          <i class="bi bi-clock icon"></i>
+          <div>
+            <h4>Opening Hours</h4>
+            <p>
+              <strong>Mon-Sun:</strong> 9 AM - 6 PM<br>
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-3 col-lg-6 footer-links">
+          <h4>Follow Us</h4>
+          <div class="social-links d-flex">
+            <!-- <a href="#" class="twitter"><i class="bi bi-twitter"></i></a>
+            <a href="#" class="facebook"><i class="bi bi-facebook"></i></a> -->
+            <a href="https://www.instagram.com/thebunnyteeth.photography/" class="instagram"><i
+                class="bi bi-instagram"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="container">
+      <div class="copyright">
+        &copy; Copyright <strong><span>The BunnyTeeth Photography</span></strong>. All Rights Reserved
+      </div>
+      <div class="credits">
+        <!-- Designed by <a href="#">Saravanan</a> -->
+      </div>
+    </div>
+
+  </footer>
+
+  <div id="preloader"></div>
+  <script src="../assets/js/main.js"></script>
+
+
+  <script src="../assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>
